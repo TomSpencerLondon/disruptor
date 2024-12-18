@@ -10,6 +10,15 @@ public class MessageEventHandler implements EventHandler<MessageEvent> {
     @Override
     public void onEvent(MessageEvent event, long sequence, boolean endOfBatch) {
         logger.info("Processing message: {} at sequence: {}", event.getMessage(), sequence);
+
+        try {
+            Thread.sleep(10); // Optional delay for demonstration
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+        }
+        long processingEndTime = System.currentTimeMillis();
+        logger.info("Processed message: {} at sequence: {} in {} ms",
+                event.getMessage(), sequence, (processingEndTime - event.getStartTime()));
     }
 }
 

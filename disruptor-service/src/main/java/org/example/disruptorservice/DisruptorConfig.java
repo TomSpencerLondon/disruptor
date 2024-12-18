@@ -3,14 +3,17 @@ package org.example.disruptorservice;
 import com.lmax.disruptor.dsl.Disruptor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+
+import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.Executors;
+import java.util.concurrent.LinkedBlockingQueue;
 
 @Configuration
 public class DisruptorConfig {
     @Bean
     public Disruptor<MessageEvent> disruptor() {
         MessageEventFactory factory = new MessageEventFactory();
-        int bufferSize = 1024;
+        int bufferSize = 262_144;
 
         Disruptor<MessageEvent> disruptor = new Disruptor<>(
                 factory,
@@ -22,5 +25,10 @@ public class DisruptorConfig {
         disruptor.start();
 
         return disruptor;
+    }
+
+    @Bean
+    public BlockingQueue<MessageEvent> messageQueue() {
+        return new LinkedBlockingQueue<>();
     }
 }
