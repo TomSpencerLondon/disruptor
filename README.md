@@ -193,8 +193,7 @@ We simulated a system where producers publish messages to a queue or ring buffer
 ### **Conclusion**
 Testing demonstrates that the **Disruptor** is a powerful tool for high-throughput, low-latency systems. While the **BlockingQueue** performs well for moderate workloads, the Disruptor shines in high-concurrency scenarios, making it a better choice for applications with demanding performance requirements.
 
-Let me know if you’d like further refinements or additional details to include! 🚀
 
-### **Key Takeaways**
+### **Key Takeaways** 🚀
 - The **Disruptor API** is a powerful tool for concurrent message processing, eliminating bottlenecks in traditional queue-based systems.
 - This app showcases a simple but effective use case, demonstrating high throughput and efficient concurrency handling.
