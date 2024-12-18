@@ -4,14 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="156b8219-5419-4fdb-999a-28e02e69597c" name="Changes" comment="add README.md">
-      <change afterPath="$PROJECT_DIR$/disruptor-service/src/test/java/org/example/disruptorservice/DisruptorTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client-service/src/test/java/org/example/clientservice/ConcurrentMessageIntegrationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/client-service/src/test/java/org/example/clientservice/ConcurrentMessageIntegrationTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/disruptor-service/src/main/java/org/example/disruptorservice/DisruptorConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/disruptor-service/src/main/java/org/example/disruptorservice/DisruptorConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/disruptor-service/src/main/java/org/example/disruptorservice/MessageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/disruptor-service/src/main/java/org/example/disruptorservice/MessageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/disruptor-service/src/main/java/org/example/disruptorservice/MessageEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/disruptor-service/src/main/java/org/example/disruptorservice/MessageEvent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/disruptor-service/src/main/java/org/example/disruptorservice/MessageEventHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/disruptor-service/src/main/java/org/example/disruptorservice/MessageEventHandler.java" afterDir="false" />
+    <list default="true" id="156b8219-5419-4fdb-999a-28e02e69597c" name="Changes" comment="adjust buffersize to see performance improvement for Disruptor">
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -256,7 +250,7 @@
       <option name="presentableId" value="Default" />
       <updated>1734546012927</updated>
       <workItem from="1734546014310" duration="1565000" />
-      <workItem from="1734548841007" duration="6891000" />
+      <workItem from="1734548841007" duration="7286000" />
     </task>
     <task id="LOCAL-00001" summary="add README.md">
       <option name="closed" value="true" />
@@ -266,7 +260,15 @@
       <option name="project" value="LOCAL" />
       <updated>1734553497098</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="adjust buffersize to see performance improvement for Disruptor">
+      <option name="closed" value="true" />
+      <created>1734556957017</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1734556957017</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -274,7 +276,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="add README.md" />
-    <option name="LAST_COMMIT_MESSAGE" value="add README.md" />
+    <MESSAGE value="adjust buffersize to see performance improvement for Disruptor" />
+    <option name="LAST_COMMIT_MESSAGE" value="adjust buffersize to see performance improvement for Disruptor" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

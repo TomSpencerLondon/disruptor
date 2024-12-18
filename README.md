@@ -78,8 +78,8 @@ Compared to traditional queue-based systems:
 
 #### **Step 1: Clone the Repository**
 ```bash
-git clone https://github.com/your-repo/disruptor-thymeleaf-app.git
-cd disruptor-thymeleaf-app
+git clone https://github.com/TomSpencerLondon/disruptor.git
+cd disruptor
 ```
 
 #### **Step 2: Run the Disruptor Service**
@@ -134,8 +134,67 @@ INFO  MessageEventHandler - Processing message: Hello Disruptor! at sequence: 42
 
 ---
 
+## **Performance Testing and Why Disruptor Is Useful**
+
+### **Testing Overview**
+To evaluate the performance of the **Disruptor**, we conducted a series of tests comparing it to a traditional **BlockingQueue**. These tests were designed to measure:
+
+1. **Processing Time**: How long it takes to process a fixed number of messages.
+2. **Throughput**: The number of messages processed per second.
+3. **Scalability**: How the system performs under high workloads and concurrency levels.
+
+---
+
+### **Test Setup**
+We simulated a system where producers publish messages to a queue or ring buffer, and consumers process those messages. The tests included:
+
+1. **Disruptor**:
+    - A ring buffer configured with varying buffer sizes.
+    - Lock-free design for high concurrency.
+    - Tested buffer sizes: `32_768`, `262_144`, and `524_288`.
+
+2. **BlockingQueue**:
+    - A `LinkedBlockingQueue` as the traditional alternative.
+    - Synchronized access leading to potential contention under high concurrency.
+
+---
+
+### **Key Results**
+| **Metric**                | **Disruptor (262,144 buffer)**   | **BlockingQueue**             |
+|---------------------------|----------------------------------|--------------------------------|
+| Processing Time (1M msgs) | 1230 ms                         | 1416 ms                       |
+| Throughput                | 813,008 messages/sec            | 706,214 messages/sec          |
+
+#### **Observations**:
+- The **Disruptor** outperformed the BlockingQueue by 15% in terms of throughput at 1 million messages.
+- Larger buffer sizes initially improved performance, but beyond **262,144**, the Disruptor’s performance plateaued, suggesting hardware limits (e.g., CPU cache size or memory bandwidth).
+
+---
+
+### **Why the Disruptor Is Useful**
+
+1. **High Throughput**:
+    - The Disruptor’s lock-free design avoids contention, making it ideal for systems processing millions of messages per second.
+
+2. **Low Latency**:
+    - It minimizes delays caused by locks or context switching, ensuring consistent performance for time-sensitive applications.
+
+3. **Scalability**:
+    - The Disruptor excels under high concurrency and large workloads, as demonstrated in tests with 1 million messages.
+
+4. **Efficiency**:
+    - By leveraging CPU caches and avoiding traditional queues, the Disruptor makes optimal use of hardware resources.
+
+5. **Ideal for Real-Time Systems**:
+    - Applications requiring deterministic performance, such as financial systems or telemetry, benefit significantly from the Disruptor.
+
+---
+
+### **Conclusion**
+Testing demonstrates that the **Disruptor** is a powerful tool for high-throughput, low-latency systems. While the **BlockingQueue** performs well for moderate workloads, the Disruptor shines in high-concurrency scenarios, making it a better choice for applications with demanding performance requirements.
+
+Let me know if you’d like further refinements or additional details to include! 🚀
+
 ### **Key Takeaways**
 - The **Disruptor API** is a powerful tool for concurrent message processing, eliminating bottlenecks in traditional queue-based systems.
 - This app showcases a simple but effective use case, demonstrating high throughput and efficient concurrency handling.
-
-Feel free to experiment and extend this project! 🚀
